@@ -24,11 +24,7 @@ public interface DbMap  {
 	 */
 	public Object get(Object key);
 
-	/**
-	 * 아래 메소드들은 타입태스팅하는 불편을 엾애기 위해 추가함. 
-	 * @param key
-	 * @return
-	 */
+
 	public String getString(Object key);
 
 	public int getInt(Object key);

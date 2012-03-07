@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import com.uro.common.util.StringUtil;
+
 
 
 
@@ -43,7 +45,7 @@ public class CiHashMap extends HashMap implements DbMap {
 	}
 
 	/**
-	 * ¾Æ·¡ ¸Þ¼ÒµåµéÀº Å¸ÀÔÅÂ½ºÆÃÇÏ´Â ºÒÆíÀ» ¿²¾Ö±â À§ÇØ Ãß°¡ÇÔ.
+	 * ï¿½Æ·ï¿½ ï¿½Þ¼Òµï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½.
 	 * 
 	 * @param key
 	 * @return
@@ -178,7 +180,7 @@ public class CiHashMap extends HashMap implements DbMap {
 			}
 			int p = op.indexOf('\'');
 			if( p >= 0) {
-				throw new InnoException("ÀÔ·ÂÇÊµå¿¡ ' ¸¦ »ç¿ëÇÒ¼ö ¾ø½À´Ï´Ù.");
+				throw new InnoException("ï¿½Ô·ï¿½ï¿½Êµå¿¡ ' ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			}
 			str += "["+key +" > "+ op +"]";
 		}
@@ -199,7 +201,7 @@ public class CiHashMap extends HashMap implements DbMap {
 				}
 			}
 			else{
-				if(value == null) value = "°ªÀÌ ¾ø½À´Ï´Ù.";
+				if(value == null) value = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.";
 			    op = value.toString();
 			}
 

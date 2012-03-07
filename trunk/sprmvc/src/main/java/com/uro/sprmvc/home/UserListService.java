@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.uro.common.base.BaseService;
+
 
 @Repository
 public class UserListService /* extends BaseService */ {
