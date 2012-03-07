@@ -24,10 +24,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 
-
-import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-
-
 /**  
  * @Class Name : EgovSampleServiceImpl.java
  * @Description : Sample Business Implement Class
