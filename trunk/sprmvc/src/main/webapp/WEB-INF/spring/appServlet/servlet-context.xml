@@ -18,7 +18,7 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/img/**" location="/resources/" />
+<!-- 	<resources mapping="/img/**" location="/resources/" /> -->
 	<!-- 이 위에 처럼 하지 말것. 헷갈려~~ -->
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/images/**" location="/images/" />
