@@ -16,7 +16,7 @@
 
 
 
-<img alt="" src="/Sprmvc/img/tum.png">
+<img alt="" src="/sprmvc/images/tum.png">
 <P>  The time on the server is ${serverTime}. </P>
 <a href="gone.jsp">여기</a>
 </body>
