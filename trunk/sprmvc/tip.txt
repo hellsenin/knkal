@@ -48,3 +48,30 @@ ERROR - SQL 실행 에러가 발생한 경우 stack trace 정보를 로그로 �
 
 
 자세한 사용법 및 weblogic 등에서 설정은 http://dev.anyframejava.org/anyframe/doc/core/3.1.0/corefw/guide/query-sqllogging.html
+
+
+
+============
+
+controller 단에서 message 사용
+
+	@Resource(name="messageSource")
+	private MessageSource messageSource;
+
+
+	@RequestMapping(value="/com/egovMain.do", method=RequestMethod.GET)
+	protected String changeLocale() throws Exception {
+		String op = messageSource.getMessage("button.search", null, Locale.getDefault());
+		System.out.println(op);
+
+
+jsp 에서는 
+	<spring:message code="label.menu"/>
+		
+============		
+
+프로젝트 루트를 우클릭 > spring 선택 > add spring nature... 
+spring explorer에서 빈즈 우클릭 show requestmappings 
+새창에 request mapping이 표시됨.
+
+============= 
