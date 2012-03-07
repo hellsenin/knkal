@@ -22,8 +22,13 @@
 	<!-- 이 위에 처럼 하지 말것. 헷갈려~~ -->
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/images/**" location="/images/" />
-
-	<!-- http://gujjy.wordpress.com/2011/06/20/spring-mvc-exception-handler-%EC%99%80-viewresolver-%EA%B6%81%ED%95%A9/ 
+	<resources mapping="/js/**" location="/js/" />
+	
+	
+	
+	<!-- 
+	
+	http://gujjy.wordpress.com/2011/06/20/spring-mvc-exception-handler-%EC%99%80-viewresolver-%EA%B6%81%ED%95%A9/ 
 	비교적 공통적인 예외처리는 SimpleMappingExceptionResolver 에서 처리하고
 	공통적이지 않은 예외처리는 @ExceptionHandler 를 이용해 해당 클래스에서 처리하도록 설정하려 합니다.
 	순서는 AnnotationMethodHandlerExceptionResolver에게 우선권을 줍니다. controller 클래스에서 직접 정의한 ExceptionHandler를 우선시하기 위함입니다.
