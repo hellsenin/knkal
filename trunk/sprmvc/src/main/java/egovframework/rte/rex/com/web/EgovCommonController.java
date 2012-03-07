@@ -15,6 +15,11 @@
  */
 package egovframework.rte.rex.com.web;
 
+import java.util.Locale;
+
+import javax.annotation.Resource;
+
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,6 +41,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class EgovCommonController {
+	
+	@Resource(name="messageSource")
+	private MessageSource messageSource;
 
     /**
      * 권한이 없는 사용자가 접근시 권한제한 화면으로 이동한다.
@@ -53,7 +61,8 @@ public class EgovCommonController {
      */
 	@RequestMapping(value="/com/egovMain.do", method=RequestMethod.GET)
 	protected String changeLocale() throws Exception {
-		
+		String op = messageSource.getMessage("button.search", null, Locale.getDefault());
+		System.out.println(op);
 		return "main/EgovMain";
 	}
 	
