@@ -75,3 +75,15 @@ spring explorer에서 빈즈 우클릭 show requestmappings
 새창에 request mapping이 표시됨.
 
 ============= 
+
+뻔히 보이는 jar 파일의 클래스를 못찾고 classnotfound 에러를 내면 
+프로젝트 오른쪽마우스 프로퍼티에서 deployment-assembly에서 메이븐 확인
+없으면 add 버튼 java path 클릭 메이븐 선택하면 됨.
+
+
+=============
+
+mysql에서 인서트시 한글 깨지면
+jdbc:mysql://127.0.0.1:3306/egov?useUnicode=true&characterEncoding=UTF-8
+
+==============
