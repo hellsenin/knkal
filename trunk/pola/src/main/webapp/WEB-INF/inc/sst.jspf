@@ -1,0 +1,41 @@
+<%@ taglib uri="/WEB-INF/tlds/knkal.tld" prefix="cx"%>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Language" content="ko">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>URO Instruments Framework</title>
+<link href="<c:url value='/css/common.css'/>" rel="stylesheet" type="text/css">
+<link href="<c:url value='/css/layout.css'/>" rel="stylesheet" type="text/css">
+<link href="<c:url value='/css/jquery-ui-1.8.18.custom.css'/>" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<cx:wc/>/js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="<cx:wc/>/js/jquery-ui-1.8.18.custom.min.js"></script>
+<script>
+	jQuery.noConflict();
+	var cx_wc = "<cx:wc/>";
+</script>
+</head>
+<body>
+<noscript>자바스크립트를 지원하지 않는 브라우저에서는 일부 기능을 사용하실 수 없습니다.</noscript>
+<cx:debug category="com.uro.jsp" message=">>> JSP start " />
+<div id="container">
+<div id="header">
+	<h1>URO Instruments</h1>
+	<h2>Leading edge of risk management solution</h2>
+	<br />
+	      <p class="right"> home | virus | no touch | admin </p>	
+	<br />
+	<p style="margin-bottom:20px;"/>
+	
+	<div class="hr"><hr /></div>
+
+	
+
+	
+</div><!-- end header -->
