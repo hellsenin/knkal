@@ -23,9 +23,14 @@
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/images/**" location="/images/" />
 	<resources mapping="/js/**" location="/js/" />
-	
-	
-	
+	<resources mapping="/juiz/**" location="/juiz/" />
+	<resources mapping="/large/**" location="/large/" />	
+	<resources mapping="/mega/**" location="/mega/" />
+	<resources mapping="/free/**" location="/free/" />
+	<resources mapping="/green/**" location="/green/" />
+	<resources mapping="/hori/**" location="/hori/" />
+	<resources mapping="/jqu/**" location="/jqu/" />
+	<resources mapping="/smoke/**" location="/smoke/" />
 	<!-- 
 	
 	http://gujjy.wordpress.com/2011/06/20/spring-mvc-exception-handler-%EC%99%80-viewresolver-%EA%B6%81%ED%95%A9/ 
