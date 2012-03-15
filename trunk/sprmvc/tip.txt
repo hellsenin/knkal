@@ -119,4 +119,36 @@ web-inf/lib에 복사하지 않는다. 실제로는 이클립스 버전에 따�
 소스를 다 뒤져서 사용안하기로한 쪽을 지워야 한다.
 pom파일에도 다 지워준다. update configuration한다.
 
+최종방법. 둘다 쓴다.
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+        
+		<dependency>
+		  <groupId>org.slf4j</groupId>
+		  <artifactId>jcl-over-slf4j</artifactId>
+		  <version>1.6.4</version>
+		</dependency>
+		
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.3alpha-8</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>net.sf</groupId>
+            <artifactId>log4jdbc3</artifactId>
+            <version>1.1</version>
+        </dependency>
+
 ============
