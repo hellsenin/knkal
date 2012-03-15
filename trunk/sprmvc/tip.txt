@@ -19,7 +19,7 @@ HTML select, option 태그에 commandName에 지정된 객체 프로퍼티를 �
 =============
 
 톰캣을 서버로 쓸때 메이븐 아래 있는 jar를 인식못하고 web.xml에서 정의한 스프링파일을 class not found exception을 내면 
-프로젝트에서 오른쪽 마우스 프로퍼티로 가서 메이븐 항목에서 메이븐을 web-inf/lib로 연결시켜줘야 한다.
+프로젝트에서 오른쪽 마우스 프로퍼티로 가서 deploy assembly 메뉴 - 메이븐 항목에서 메이븐을 web-inf/lib로 연결시켜줘야 한다.
 
 =============
 
@@ -87,3 +87,36 @@ mysql에서 인서트시 한글 깨지면
 jdbc:mysql://127.0.0.1:3306/egov?useUnicode=true&characterEncoding=UTF-8
 
 ==============
+
+SVN
+knkal.googlecode.com
+q3m7q5y7
+
+==============
+
+UTF-8로 설정했는데도 불구하고 자바소스파일에서 알수 없는 캐릭터 에러가 나면 그냥 전체 소스를 카피해서 텍스트에디터로 옮겼다가 다시 eclipse로 옮겨놓으면 
+에러가 없어짐. 별 병신같은 짓 다하네....
+
+
+==============
+pom파일을 건리드면 maven 메뉴에서 update configuration을 해준다. 
+이렇게 하면 십중팔구 멀쩡히 있는 클래스를 class not found error를 내주신다.
+프로젝트에서 오른쪽 프로퍼티메뉴를 열고 deploy assembly에서 메이븐을 다시 추가해 준다.
+update configuration을 하면 다시 반복.
+
+==============
+톰캣에 내장된 servlet****.jar나 jsp-api****.jar는 provided를 어트리뷰트에 넣어주어야 메이븐에
+web-inf/lib에 복사하지 않는다. 실제로는 이클립스 버전에 따라 넣어주는 버그가 있는 버전이 있다.
+헬리오스버전을 사용하는 egovframework용 이클립스는 죽어라고 넣어줘서 톰캣을 띄우면 c-tag 어쩌고 하는 에러가 난다.
+이 에러를 피하려면 pom파일에 servlet***.jar는 기존대로 넣어두고 jsp***.jar는 삭제한다.
+가능하면 메이븐 install 사용하지 말것. jspException class not found 에러 남.
+이클립스의 프로젝트메뉴에서 clean을 사용할 것.
+
+
+
+==============
+로그가 제대로 안찍힐때는 slf4j와 commons-logging이 충돌하는 경우. 둘중 하나만 사용한다.
+소스를 다 뒤져서 사용안하기로한 쪽을 지워야 한다.
+pom파일에도 다 지워준다. update configuration한다.
+
+============
