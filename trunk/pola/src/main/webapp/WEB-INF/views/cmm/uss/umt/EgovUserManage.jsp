@@ -1,28 +1,8 @@
-<%--
-  Class Name : EgovUserManage.jsp
-  Description : 사용자관리(조회,삭제) JSP
-  Modification Information
- 
-      수정일         수정자                   수정내용
-    -------    --------    ---------------------------
-     2009.03.03   JJY              최초 생성
-     2011.08.31   JJY       경량환경 버전 생성
- 
-    author   : 공통서비스 개발팀 JJY
-    since    : 2009.03.03
---%>
-<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<meta http-equiv="content-language" content="ko">
-<link href="<c:url value='/'/>css/common.css" rel="stylesheet" type="text/css" >
-<title>사용자 목록</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/inc/sst.jspf"%>
+
+
+
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
 function fnCheckAll() {
@@ -111,42 +91,19 @@ function fnViewCheck(){
         insert_msg.style.visibility = 'hidden';
     }
 }
-<c:if test="${!empty resultMsg}">alert("<spring:message code="${resultMsg}" />");</c:if>
-//-->
+
+-->
 </script>
 
-</head>
-<body>
-<noscript class="noScriptTitle">자바스크립트를 지원하지 않는 브라우저에서는 일부 기능을 사용하실 수 없습니다.</noscript>
-<!-- 전체 레이어 시작 -->
-<div id="wrap">
-    <!-- header 시작 -->
-    <div id="header"><c:import url="/EgovPageLink.do?link=main/inc/EgovIncHeader" /></div>
-    <div id="topnavi"><c:import url="/sym/mms/EgovMainMenuHead.do" /></div>        
-    <!-- //header 끝 --> 
-    <!-- container 시작 -->
-    <div id="container">
-        <!-- 좌측메뉴 시작 -->
-        <div id="leftmenu"><c:import url="/sym/mms/EgovMainMenuLeft.do" /></div>
-        <!-- //좌측메뉴 끝 -->
-            <!-- 현재위치 네비게이션 시작 -->
-            <div id="content">
-              <form name="listForm" action="<c:url value='/uss/umt/user/EgovUserManage.do'/>" method="post">
-              <input type="submit" id="invisible" class="invisible"/>
-                <div id="cur_loc">
-                    <div id="cur_loc_align">
-                        <ul>
-                            <li>HOME</li>
-                            <li>&gt;</li>
-                            <li>내부시스템관리</li>
-                            <li>&gt;</li>
-                            <li><strong>사용자관리</strong></li>
-                        </ul>
-                    </div>
-                </div>
+
+
+<div id="main">
+	<h3>사용자목록</h3>
+
+
                 <!-- 검색 필드 박스 시작 -->
                 <div id="search_field">
-                    <div id="search_field_loc"><h2><strong>사용자목록</strong></h2></div>
+                    
 				        <input name="selectedId" type="hidden" />
 				        <input name="checkedIdForDel" type="hidden" />
 				        <input name="pageIndex" type="hidden" value="<c:out value='${userSearchVO.pageIndex}'/>"/>
@@ -244,18 +201,11 @@ function fnViewCheck(){
                     <ul class="paging_align">
                         <ui:pagination paginationInfo = "${paginationInfo}"  type="image" jsFunction="fnLinkPage" />
                     </ul>
-                </div>                          
-                <!-- //페이지 네비게이션 끝 -->  
+                </div>
+
+				<div class="verticalSpace">&nbsp;</div>
               </form>
 
-            </div>
-            <!-- //content 끝 -->    
-        </div>  
-        <!-- //container 끝 -->
-        <!-- footer 시작 -->
-        <div id="footer"><c:import url="/EgovPageLink.do?link=main/inc/EgovIncFooter" /></div>
-        <!-- //footer 끝 -->
-    </div>
-    <!-- //전체 레이어 끝 -->
- </body>
-</html>
+</div>
+<!-- // main 끝 -->    
+<%@include file="/WEB-INF/inc/end.jspf"%>

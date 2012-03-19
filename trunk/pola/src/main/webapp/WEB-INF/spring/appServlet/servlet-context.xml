@@ -12,11 +12,7 @@
 
 
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
-	<!-- Enables the Spring MVC @Controller programming model -->
-	<annotation-driven />
-	
+
 	
 	
     <!--
@@ -33,27 +29,55 @@
     <!--
         - This bean processes annotated handler methods, applying Application-specific PropertyEditors
         - for request parameter binding. It overrides the default AnnotationMethodHandlerAdapter.
+        
+
+        
      -->
     <!-- ReqeustMapping 과 Controller 클래스 매핑을 위한 mvc 설정 -->
-    <beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+
+    
+ 	<!-- ReqeustMapping 과 Controller 클래스 매핑을 위한 annotation mvc 설정 -->
+	
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model 아래 AnnotationMethodHandlerAdapter 동시 사용불가.-->
+
+	<beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <beans:property name="webBindingInitializer">
             <beans:bean class="egovframework.com.cmm.web.EgovBindingInitializer"/>
         </beans:property>
+    
         <beans:property name="customArgumentResolvers">
             <beans:list>
                 <beans:bean class="egovframework.rte.ptl.mvc.bind.CommandMapArgumentResolver"/>
             </beans:list>
         </beans:property>
+		<beans:property name = "messageConverters">
+			<beans:list>
+				<beans:bean class = "org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+				</beans:bean>
+			</beans:list>
+		</beans:property>        
     </beans:bean>
-    <!-- ReqeustMapping 과 Controller 클래스 매핑을 위한 annotation mvc 설정 -->
+    
     <beans:bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
 	
+
+
 	
 	
+<!-- 	
+<beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapterConfigurer" init-method="init">
+ <beans:property name="customArgumentResolver">
+   <beans:bean class="egovframework.rte.ptl.mvc.bind.CommandMapArgumentResolver" />   
+ </beans:property>
+
+</beans:bean>
+ -->	
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 <!-- 	<resources mapping="/img/**" location="/resources/" /> -->
-	<!-- 이 위에 처럼 하지 말것. 헷갈려~~ -->
+	<!-- 이 위에 처럼 하지 말것. 헷갈려~~  일단 그냥 webapp 아래로 옮김. 아래 설정은 WEB-INF 아래에 둘 경우 사용하면 됨.-->
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/images/**" location="/images/" />
 	<resources mapping="/js/**" location="/js/" />
@@ -147,10 +171,13 @@
 
 
 	
-	<context:component-scan base-package="com.uro.pola" />
+	
 	    <!-- 패키지 내 Controller, Service, Repository 클래스의 auto detect를 위한 mvc 설정 -->
+	    
+	<context:component-scan base-package="com.uro" />    
+	    
     <context:component-scan base-package="egovframework" />
-    
+
 <!--     
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>

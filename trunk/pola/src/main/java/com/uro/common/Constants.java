@@ -6,6 +6,8 @@ public class Constants {
 
 //	public static final int DefaultTableRow = Integer.parseInt(Settings.get(
 //			"page.row", "10"));
+	
+	public static final String WEB_CONTEXT = "/pola";
 
 	public static final String USER_KEY = "sessionUser";
 	public static final String XML_STATUS = "xmlStatus";
