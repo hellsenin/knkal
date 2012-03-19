@@ -113,3 +113,7 @@ a:hover {
 }
 div.hr { margin: 5px 0px; border: none; border-top: 1px solid #D3D3D3; }
 div.hr hr { display: none; }
+.verticalSpace {
+	margin-bottom:40px;
+	
+}

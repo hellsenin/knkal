@@ -64,10 +64,10 @@
 	</logger>
 	
 
-	<!-- Root Logger -->
+	<!-- Root Logger 로그가 두번 나와서 코멘트처리 함.
 	<root>
 		<level value="warn" />
 		<appender-ref ref="console" />
 	</root>
-	
+	-->
 </log4j:configuration>

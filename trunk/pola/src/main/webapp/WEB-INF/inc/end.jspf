@@ -11,4 +11,16 @@
     </div><!-- end footer -->
   </div><!-- end container -->
 </body>
+<%
+String msg = (String)request.getAttribute("ErrMessage");
+if( msg != null && !"".equals(msg)) {
+	pageContext.setAttribute("opmsg", msg);
+}
+else {
+	pageContext.setAttribute("opmsg", "ssss");
+}
+%>
+<script>
+alert('${opmsg}');
+</script>	
 </html>

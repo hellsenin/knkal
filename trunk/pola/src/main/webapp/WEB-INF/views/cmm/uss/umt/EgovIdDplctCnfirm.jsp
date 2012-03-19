@@ -1,17 +1,4 @@
-<%--
-  Class Name : EgovIdDplctCnfirm.jsp
-  Description : 아이디중복확인
-  Modification Information
- 
-      수정일         수정자                   수정내용
-    -------    --------    ---------------------------
-     2009.03.03   JJY              최초 생성
-     2011.08.31   JJY       경량환경 버전 생성
- 
-    author   : 공통서비스 개발팀 JJY
-    since    : 2009.03.03
---%>
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -20,9 +7,10 @@
 <html>
 <head>
 <title>ID중복확인</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
 <meta http-equiv="content-language" content="ko">
 <link rel="stylesheet" href="<c:url value='/css/common.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/css/layout.css'/>" type="text/css">
 <base target="_self">
 <script type="text/javaScript">
 <!--

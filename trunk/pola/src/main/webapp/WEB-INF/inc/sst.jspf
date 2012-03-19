@@ -3,6 +3,9 @@
 <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <META HTTP-EQUIV="Expires" CONTENT="-1">
@@ -11,14 +14,15 @@
 <meta http-equiv="Content-Language" content="ko">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>URO Instruments Framework</title>
-<link href="<c:url value='/css/common.css'/>" rel="stylesheet" type="text/css">
-<link href="<c:url value='/css/layout.css'/>" rel="stylesheet" type="text/css">
-<link href="<c:url value='/css/jquery-ui-1.8.18.custom.css'/>" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="<cx:wc/>/js/jquery-1.7.1.js"></script>
-<script type="text/javascript" src="<cx:wc/>/js/jquery-ui-1.8.18.custom.min.js"></script>
+<% pageContext.setAttribute("wc", pageContext.getServletContext().getContextPath()); %>
+<link href="${wc}/css/common.css" rel="stylesheet" type="text/css">
+<link href="${wc}/css/layout.css" rel="stylesheet" type="text/css">
+<link href="${wc}/css/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="${wc}/js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="${wc}/js/jquery-ui-1.8.18.custom.min.js"></script>
 <script>
-	jQuery.noConflict();
-	var cx_wc = "<cx:wc/>";
+	//jQuery.noConflict();
+	var cx_wc = "${wc}";
 </script>
 </head>
 <body>
@@ -29,13 +33,8 @@
 	<h1>URO Instruments</h1>
 	<h2>Leading edge of risk management solution</h2>
 	<br />
-	      <p class="right"> home | virus | no touch | admin </p>	
+	      <p class="right topmenu"> home | virus | <a href="${wc}/currentJobList">no touch</a> | <a href="${wc}/uss/umt/user/EgovUserManage.do">admin</a> </p>	
 	<br />
 	<p style="margin-bottom:20px;"/>
-	
 	<div class="hr"><hr /></div>
-
-	
-
-	
 </div><!-- end header -->
