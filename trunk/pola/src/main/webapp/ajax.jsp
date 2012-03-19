@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/inc/sst.jspf"%>
 <script>
-
+// 서버는 ccom.uro.sprmvc.common.controller.JSONController.java에 있음.
 
 
 $(document).ready(function(){
@@ -14,7 +14,8 @@ $(document).ready(function(){
 		data:{tncode:'oper',key:'123',msg:encodeURIComponent('한글로 메시지 보내')},
 		success:function(data){
 //한글로 받는다.
-			$('#memo').append(decodeURIComponent(data).split("+").join(" "));
+//			$('#memo').append(decodeURIComponent(data).split("+").join(" "));
+			$('#memo').append(data);
 		},
 		error:function(data){
 			alert("status = " + data.status + " , error = " + error);

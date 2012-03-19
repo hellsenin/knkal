@@ -7,40 +7,10 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-
-
-
-
-
-
 	
-	
-    <!--
-        - The form-based controllers within this application provide @RequestMapping 
-        - annotations at the type level for path mapping URLs and @RequestMapping 
-        - at the method level for request type mappings (e.g., GET and POST). 
-        - In contrast, ClinicController - which is not form-based - provides 
-        - @RequestMapping only at the method level for path mapping URLs.
-        -
-        - DefaultAnnotationHandlerMapping is driven by these annotations and is 
-        - enabled by default with Java 5+.
-    -->
-
-    <!--
-        - This bean processes annotated handler methods, applying Application-specific PropertyEditors
-        - for request parameter binding. It overrides the default AnnotationMethodHandlerAdapter.
-        
-
-        
-     -->
-    <!-- ReqeustMapping 과 Controller 클래스 매핑을 위한 mvc 설정 -->
-
-    
- 	<!-- ReqeustMapping 과 Controller 클래스 매핑을 위한 annotation mvc 설정 -->
-	
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
-	<!-- Enables the Spring MVC @Controller programming model 아래 AnnotationMethodHandlerAdapter 동시 사용불가.-->
+	<!-- Enables the Spring MVC @Controller programming model 아래 AnnotationMethodHandlerAdapter 동시 사용불가.
+	 <annotation-driven/> 
+	 -->
 
 	<beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <beans:property name="webBindingInitializer">
@@ -65,15 +35,7 @@
 
 
 	
-	
-<!-- 	
-<beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapterConfigurer" init-method="init">
- <beans:property name="customArgumentResolver">
-   <beans:bean class="egovframework.rte.ptl.mvc.bind.CommandMapArgumentResolver" />   
- </beans:property>
 
-</beans:bean>
- -->	
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 <!-- 	<resources mapping="/img/**" location="/resources/" /> -->

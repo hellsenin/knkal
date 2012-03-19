@@ -152,3 +152,11 @@ pom파일에도 다 지워준다. update configuration한다.
         </dependency>
 
 ============
+로그가 두번씩 찍힐 때
+log4j의 root logger를 삭제.
+
+http://devyongsik.tistory.com/176
+
+===========
+
+
