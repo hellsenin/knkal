@@ -1,0 +1,71 @@
+
+
+
+
+// Create a pattern to match cat
+java.util.regex.Pattern p = java.util.regex.Pattern.compile("cat");
+// Create a matcher with an input string
+java.util.regex.Matcher m = p.matcher("one cat, two cats in the yard");
+StringBuffer sb = new StringBuffer();
+boolean result = m.find();
+// Loop through and create a new String 
+// with the replacements
+while(result) {
+    m.appendReplacement(sb, "dog");
+    result = m.find();
+}
+// Add the last segment of input to 
+// the new String
+m.appendTail(sb);
+System.out.println(sb.toString());
+
+
+
+
+
+
+String firstString = "This sentence ends_w_r in 5 .T stars *****";
+String secondString = "1, 2, 3, 4, 5, 6, 7, 8";
+
+firstString = firstString.replaceAll( "\\_[a-z]", "^" );
+System.out.println(firstString);
+
+
+
+
+String myString = "This is_rdoxid";
+myString = myString.replaceAll("\\_(\\w)", "_ $1");
+System.out.println(myString);
+
+
+
+
+String s = "getUserMobilePhoneNumber";
+String[] r = s.split("(?=\\p{Lu})");
+System.out.println(r[0]);
+System.out.println(r[1]);
+System.out.println(r[2]);
+
+
+
+
+
+String str = "This is USD Tdoxid";
+str = str.replaceAll("USD", java.util.regex.Matcher.quoteReplacement());
+System.out.println(str);
+
+
+java.util.regex.Pattern patt = java.util.regex.Pattern.compile("\\_(\\w)");
+java.util.regex.Matcher m = patt.matcher("this_is_a_amazing_story");
+StringBuffer sb = new StringBuffer("this_is_a_amazing_story".length());
+while (m.find()) {
+  String text = m.group(1);
+  text = text.toUpperCase();
+  m.appendReplacement(sb, java.util.regex.Matcher.quoteReplacement(text));
+}
+m.appendTail(sb);
+System.out.println( sb.toString());
+
+
+
+
