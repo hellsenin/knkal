@@ -4,7 +4,7 @@
 // 서버는 ccom.uro.sprmvc.common.controller.JSONController.java에 있음.
 
 
-$(document).ready(function(){
+/* $(document).ready(function(){
 	alert('wow');
 	$.ajax({
 		type:"post",
@@ -23,7 +23,30 @@ $(document).ready(function(){
 	});
 });
 
+ */
 
+
+Ext.onReady(function(){
+	
+	Ext.Msg.alert('Status', 'Changes saved successfully.');
+	
+	Ext.Ajax.request({
+	    url: '<c:url value='/kfc/brands/popup/getMessageByTncodeKeyMsg.web'/>',
+	    params: {
+	    	tncode:'oper',key:'123',msg:encodeURIComponent('한글로 메시지 보내')
+	    },
+	    method: 'POST',
+	    success: function(response){
+	        var text = response.responseText;
+	        Ext.Msg.alert('Status', text);
+	        Ext.get('memo').appendChild('<p>err</p>');
+	        //Ext.get('memo').boxWrap();
+	        
+	        // process server response here
+	    }
+	});
+
+});
 
 </script>
  
