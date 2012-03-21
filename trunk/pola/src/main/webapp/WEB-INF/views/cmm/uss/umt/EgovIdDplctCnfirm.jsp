@@ -30,8 +30,9 @@ function fnCheckId(){
 function fnReturnId(){
 	var retVal="";
     if (document.checkForm.usedCnt.value == 0){
-	    retVal = document.checkForm.resultId.value;
-	    window.returnValue = retVal; 
+	    retVal = document.checkForm.checkId.value;
+	    opener.reval = retVal;
+	    window.returnValue = retVal;
         window.close();
     }else if (document.checkForm.usedCnt.value == 1){
         alert("이미사용중인 아이디입니다.");

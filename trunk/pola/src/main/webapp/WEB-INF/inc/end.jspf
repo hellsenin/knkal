@@ -21,6 +21,6 @@ else {
 }
 %>
 <script>
-alert('${opmsg}');
+//alert('${opmsg}');
 </script>	
 </html>

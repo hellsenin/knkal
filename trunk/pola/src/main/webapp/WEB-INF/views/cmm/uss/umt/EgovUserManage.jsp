@@ -3,8 +3,9 @@
 
 
 
-<script type="text/javaScript" language="javascript" defer="defer">
-<!--
+<script type="text/javaScript" language="javascript" >
+
+
 function fnCheckAll() {
     var checkField = document.listForm.checkField;
     if(document.listForm.checkAll.checked) {
@@ -92,10 +93,8 @@ function fnViewCheck(){
     }
 }
 
--->
+
 </script>
-
-
 
 <div id="main">
 	<h3>사용자목록</h3>
@@ -208,4 +207,9 @@ function fnViewCheck(){
 
 </div>
 <!-- // main 끝 -->    
+
+
+<div id="toolbar" style="width:480px;" >&nbsp;</div>
+
+
 <%@include file="/WEB-INF/inc/end.jspf"%>

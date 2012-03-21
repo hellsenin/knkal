@@ -6,6 +6,7 @@
 <script type="text/javascript" src="<c:url value='/js/EgovZipPopup.js' />" ></script>
 <script type="text/javaScript" language="javascript" defer="defer">
 <!--
+var reval;
 function fnIdCheck(){
     var retVal;
     var url = "<c:url value='/uss/umt/cmm/EgovIdDplctCnfirmView.do'/>";
@@ -13,6 +14,8 @@ function fnIdCheck(){
     varParam.checkId = document.userManageVO.emplyrId.value;
     var openParam = "dialogWidth:303px;dialogHeight:250px;scroll:no;status:no;center:yes;resizable:yes;";
     retVal = window.showModalDialog(url, varParam, openParam);
+    alert(retVal);
+    alert(reval);
     if(retVal) {
         document.userManageVO.emplyrId.value = retVal;
         document.userManageVO.id_view.value = retVal;

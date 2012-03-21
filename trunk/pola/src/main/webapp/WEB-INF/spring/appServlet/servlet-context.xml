@@ -39,11 +39,12 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 <!-- 	<resources mapping="/img/**" location="/resources/" /> -->
-	<!-- 이 위에 처럼 하지 말것. 헷갈려~~  일단 그냥 webapp 아래로 옮김. 아래 설정은 WEB-INF 아래에 둘 경우 사용하면 됨.-->
+	<!-- 이 위에 처럼 하지 말것. 헷갈려~~  -->
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/images/**" location="/images/" />
 	<resources mapping="/js/**" location="/js/" />
-
+	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/shared/**" location="/shared/" />
 	<!-- 
 	
 	http://gujjy.wordpress.com/2011/06/20/spring-mvc-exception-handler-%EC%99%80-viewresolver-%EA%B6%81%ED%95%A9/ 
