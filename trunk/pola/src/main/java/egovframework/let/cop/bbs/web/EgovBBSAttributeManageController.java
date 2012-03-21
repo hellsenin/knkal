@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springmodules.validation.commons.DefaultBeanValidator;
 
+import com.uro.common.base.DbMap;
+
 import egovframework.com.cmm.ComDefaultCodeVO;
 import egovframework.com.cmm.LoginVO;
 import egovframework.com.cmm.service.EgovCmmUseService;
@@ -604,7 +606,7 @@ public class EgovBBSAttributeManageController {
      * @throws Exception
      */
     @RequestMapping("/cop/bbs/selectAllBdMstrByTrget.do")
-    public String selectAllBdMstrByTrget(Map<String, Object> commandMap, ModelMap model) throws Exception {
+    public String selectAllBdMstrByTrget(DbMap commandMap, ModelMap model) throws Exception {
 	String trgetId = (String)commandMap.get("param_trgetId");
 	BoardMasterVO vo = new BoardMasterVO();
 	
