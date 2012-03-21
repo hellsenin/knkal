@@ -1,7 +1,5 @@
 package com.uro.common.base;
 
-import java.io.IOException;
-import java.io.Reader;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -110,9 +108,21 @@ public class CiHashMap extends HashMap implements DbMap {
 	 * @see java.util.Map#put(java.lang.Object, java.lang.Object)
 	 */
 	public Object put(Object key, Object value) {
-		
+		//user_id     userId
 	
 		return super.put(StringUtil.removeCharacter(key.toString().toLowerCase().trim(),'_'), value);
+		
+//		java.util.regex.Pattern patt = java.util.regex.Pattern.compile("\\_(\\w)");
+//		java.util.regex.Matcher m = patt.matcher(key.toString().toLowerCase());
+//		StringBuffer sb = new StringBuffer(key.toString().length());
+//		while (m.find()) {
+//		  String text = m.group(1);
+//		  text = text.toUpperCase();
+//		  m.appendReplacement(sb, java.util.regex.Matcher.quoteReplacement(text));
+//		}
+//		m.appendTail(sb);
+//		return (super.put(sb.toString(), value));
+		
 	}
 
 

@@ -42,7 +42,7 @@ public class JSONController {
 		
 		
 		
-		List qlist = sqlMapClientTemplate.queryForList("sample.query1");
+		List qlist = sqlMapClientTemplate.queryForList("samplemap.query1");
 		
 		
 		model.addAttribute("qList", qlist);

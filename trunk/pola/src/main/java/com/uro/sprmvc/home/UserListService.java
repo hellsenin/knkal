@@ -37,7 +37,7 @@ public class UserListService /* extends BaseService */ {
 		
 		//List qlist = sqlMap.queryForList("sample.query1");
 		
-		List qlist = sqlMapClientTemplate.queryForList("sample.query1");
+		List qlist = sqlMapClientTemplate.queryForList("samplemap.query1");
 		
 		return qlist;
 	}
