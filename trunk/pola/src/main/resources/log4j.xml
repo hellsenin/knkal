@@ -11,29 +11,36 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.uro">
+	<logger name="com.uro"  additivity="false">
         <level value="DEBUG"/>
         <appender-ref ref="console"/>
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
-	<logger name="org.springframework.core">
+	<logger name="org.springframework.core"  additivity="false">
 		<level value="info" />
+		<appender-ref ref="console" />
 	</logger>
 	
-	<logger name="org.springframework.beans">
+	<logger name="org.springframework.beans"  additivity="false">
 		<level value="info" />
+		<appender-ref ref="console" />
 	</logger>
 	
-	<logger name="org.springframework.context">
+	<logger name="org.springframework.context"  additivity="false">
 		<level value="info" />
+		<appender-ref ref="console" />
 	</logger>
 
-	<logger name="org.springframework.web">
+	<logger name="org.springframework.web"  additivity="false">
 		<level value="info" />
+		<appender-ref ref="console" />
 	</logger>
 
-
+	<logger name="com.ibatis"  additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console" />
+	</logger>
 
 <!-- 
 	<logger name="jdbc.resultsettable" additivity="false">
@@ -58,16 +65,16 @@
 
 
 	
-	<logger name="egovframework">
+	<logger name="egovframework"  additivity="false">
 		<level value="debug" />
 		<appender-ref ref="console" />
 	</logger>
 	
 
-	<!-- Root Logger 로그가 두번 나와서 코멘트처리 함.
+	<!-- Root Logger 로그가 두번 나와서 코멘트처리 함.-->
 	<root>
 		<level value="warn" />
 		<appender-ref ref="console" />
 	</root>
-	-->
+	
 </log4j:configuration>
