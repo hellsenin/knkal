@@ -9,12 +9,24 @@
 
 	
 	<!-- Enables the Spring MVC @Controller programming model 아래 AnnotationMethodHandlerAdapter 동시 사용불가.
-	 <annotation-driven/> 
+	 <annotation-driven/> egovframework.com.cmm.web.EgovBindingInitializer
 	 -->
+
+
 
 	<beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <beans:property name="webBindingInitializer">
-            <beans:bean class="egovframework.com.cmm.web.EgovBindingInitializer"/>
+   	    <beans:bean class="egovframework.com.cmm.web.EgovBindingInitializer" >
+   	    <beans:property name="validator" ref="validator" />
+   	    </beans:bean> 
+        <!-- 
+        <beans:bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+            <beans:property name="validator" ref="validator" />
+        </beans:bean> 
+        
+        원래는 이렇게 해야 된다는 데, 그냥 EgovBindingInitializer를 수정했음.
+        아래의 validator 빈이 있어야 함.
+        -->
         </beans:property>
     
         <beans:property name="customArgumentResolvers">
@@ -33,7 +45,7 @@
     <beans:bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
 	
 
-
+	<beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 	
 
 
@@ -45,6 +57,11 @@
 	<resources mapping="/js/**" location="/js/" />
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/shared/**" location="/shared/" />
+	
+	
+	
+	
+	
 	<!-- 
 	
 	http://gujjy.wordpress.com/2011/06/20/spring-mvc-exception-handler-%EC%99%80-viewresolver-%EA%B6%81%ED%95%A9/ 

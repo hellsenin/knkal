@@ -232,7 +232,7 @@ Ext.onReady(function(){
     }
     // scrollable menu
     tb.add({
-        icon: 'preview.png',
+        //icon: 'preview.png',
         cls: 'x-btn-text-icon',
         text: 'Scrolling Menu',
         menu: scrollMenu
