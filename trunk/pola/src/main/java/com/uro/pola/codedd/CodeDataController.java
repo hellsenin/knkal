@@ -5,17 +5,20 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.NativeWebRequest;
 
 import com.uro.common.base.CiHashMap;
 
@@ -60,10 +63,10 @@ public class CodeDataController {
     @SuppressWarnings({ "unchecked", "rawtypes"})
 	@RequestMapping(value = "/CodeDataList", method = RequestMethod.POST)
 	@ResponseBody
-	public Map jobList(@RequestParam("page") String page, NativeWebRequest webRequest ) throws Exception {
+	public Map jobList(@RequestParam("page") String page, HttpServletRequest request, Model model ) throws Exception {
 		
 		
-		HttpServletRequest request = (HttpServletRequest) webRequest.getNativeRequest();			
+		
 		Enumeration<?> enumeration = request.getParameterNames();
 		
 		while(enumeration.hasMoreElements()){
@@ -72,28 +75,48 @@ public class CodeDataController {
 			if(values!=null){
 				System.out.println("======================\n\n"+key);
 				System.out.println((values.length > 1) ? values:values[0] );
-				//commandMap.put(key, (values.length > 1) ? values:values[0] );
 			}
 		}
 
-    	
-    	
 		Map<String, Object> param = new CiHashMap();
 		// @KNKAL 정리해야쥐... 이렇게 쓰면 안됨.
 		if( page == null || "".equals(page)) page= "0";
 		int pageNo = Integer.parseInt(page);
 		param.put("pageSize", propertiesService.getInt("pageSize"));
 		param.put("pageStart",  propertiesService.getInt("pageSize")*pageNo);
-		
+
 		Map ret = codeDataService.getCodeList(param);
-		
-		
+
+
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.writeValue(System.out, ret);
 		return ret;
 	}
 
+    @RequestMapping(value = "/insertcode", method = RequestMethod.POST)
+    public String insertCode(@Valid CodeData codeData,  BindingResult result,  Model model){
+    	if(result.hasErrors()){
+    		System.out.println("this has eeor");
+    	}
+    	
+    	/* @Valid  시 메시지 연동을 하려면 태그명과 오브젝트의 필드명을 알아야 함. */
+		for (Object object : result.getAllErrors()) {
+		if (object instanceof FieldError) {
+			FieldError fieldError = (FieldError) object;
 
-	
-	
+			System.out.println(fieldError.getField() + ":"	+ fieldError.getCode());
+
+		}
+
+		if (object instanceof ObjectError) {
+			ObjectError objectError = (ObjectError) object;
+
+		}
+		}
+    	
+    	
+    	model.addAttribute("the", "22");
+    	
+    	return "codedata/insertcode";
+    }
 }
