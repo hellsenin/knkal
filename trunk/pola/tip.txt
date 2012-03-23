@@ -159,4 +159,12 @@ http://devyongsik.tistory.com/176
 
 ===========
 
+@Valid 태그 사용시 클래스에서 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
+이렇게 임포트했는지 확인할 것.
+spring어쩌구를 임포트하면 안됨.
+
+
+
 
