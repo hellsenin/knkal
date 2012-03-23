@@ -53,6 +53,20 @@
           <url>http://download.java.net/maven/2/</url>
           <layout>default</layout>
         </repository>
+        
+        <repository>
+    <id>com.springsource.repository.bundles.release</id>
+    <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
+    <url>http://repository.springsource.com/maven/bundles/release</url>
+</repository>
+
+<repository>
+    <id>com.springsource.repository.bundles.external</id>
+    <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+    <url>http://repository.springsource.com/maven/bundles/external</url>
+</repository>
+        
+        
 	</repositories>	
 
 	
@@ -459,7 +473,31 @@
 			<version>1.2</version>
 		</dependency>
 
+		<!-- JSR 303 with Hibernate Validator -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
+		</dependency>
 
+
+		<!-- Joda Time -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time-jsptags</artifactId>
+			<version>1.1</version>
+			<scope>runtime</scope>
+		</dependency>
 
 <dependency>
 	<groupId>javax.activation</groupId>
