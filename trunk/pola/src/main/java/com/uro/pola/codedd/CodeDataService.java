@@ -9,8 +9,9 @@ import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Repository;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
 
 @Repository
 public class CodeDataService {
@@ -18,11 +19,11 @@ public class CodeDataService {
 	private static final Logger logger = LoggerFactory
 			.getLogger(CodeDataService.class);
 
-	private SqlMapClientTemplate sqlMapClientTemplate;
+	private SqlMapClient sqlMapClient;
 
 	@Inject
-	public CodeDataService(SqlMapClientTemplate sqlMapClientTemplate) {
-		this.sqlMapClientTemplate = sqlMapClientTemplate;
+	public CodeDataService(SqlMapClient sqlMapClient) {
+		this.sqlMapClient  =  sqlMapClient ;
 	}
 
 	public Map<String, Object> getCodeList(Map<String, Object> param)
@@ -34,7 +35,7 @@ public class CodeDataService {
 		Map<String, Object> retmap = new HashMap<String, Object>();
 		List<Map<String, Object>> qlist = null;
 		try {
-			qlist = sqlMapClientTemplate.queryForList("samplemap.codelist",param);
+			qlist = sqlMapClient.queryForList("samplemap.codelist",param);
 
 			if (qlist != null && qlist.get(0) != null) {
 				Map temp = qlist.get(0);
