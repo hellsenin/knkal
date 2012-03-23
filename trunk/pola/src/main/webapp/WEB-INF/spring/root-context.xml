@@ -26,20 +26,7 @@
 	-->	
 	
 	
-    <!-- Integrated Apache Commons Validator by Spring Modules -->              
-    <bean id="beanValidator" class="org.springmodules.validation.commons.DefaultBeanValidator">
-        <property name="validatorFactory" ref="validatorFactory"/>
-    </bean>
-<!-- 
-    <bean id="validatorFactory" class="org.springmodules.validation.commons.DefaultValidatorFactory">
-        <property name="validationConfigLocations">
-            <list>
-                <value>/WEB-INF/spring/validator/validator-rules.xml</value>
-                <value>/WEB-INF/spring/validator/validator.xml</value>
-            </list>
-        </property>
-    </bean>
- -->
+
 	<!-- Configure the multipart resolver -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	    <!-- one of the properties available; the maximum file size in bytes -->
@@ -51,18 +38,7 @@
         - Could also reside in the root application context, as it is generic,
         - but is currently just used within Application's web tier.
     -->
-    <!-- Message : SessionLocaleResolver 
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-      <property name="basenames">
-        <list>
-         <value>classpath:message/message-common</value>
-        </list>
-      </property>
-		<property name="cacheSeconds">
-			<value>60</value>
-		</property>      
-  	</bean>		
-	-->
+
     <!-- 메시지소스빈 설정 -->
     <bean id="egovMessageSource" class="egovframework.com.cmm.EgovMessageSource">
         <property name="reloadableResourceBundleMessageSource">
@@ -82,6 +58,9 @@
             <value>60</value>
         </property>
     </bean>
+    
+
+    
     
     <!-- For Pagination Tag -->
     <bean id="imageRenderer" class="com.uro.common.egov.EgovImgPaginationRenderer"/>
@@ -108,15 +87,35 @@
         </property>
     </bean> 
 
+	<bean id="excelZipService"	class="egovframework.rte.fdl.excel.impl.EgovExcelServiceImpl">
+		<property name="propertyPath" value="excelInfo.xml" />
+		<property name="mapClass" value="egovframework.let.sym.ccm.zip.service.impl.EgovCcmExcelZipMapping" />
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	
+	<!-- 범정부에서 쓰는 밸리테이터. @Valid는 servlet-context.xml에 있음. 
+	Integration Apache Commons Validator by Spring Modules    -->          
+    <bean id="beanValidator" class="org.springmodules.validation.commons.DefaultBeanValidator">
+    <property name="validatorFactory" ref="validatorFactory"/>
+    </bean>
+    <!-- 경량환경 템플릿 밸리데이터 설정 -->
+    <bean id="validatorFactory" class="org.springmodules.validation.commons.DefaultValidatorFactory">
+    <property name="validationConfigLocations">
+        <list>
+            
+            <value>classpath:/validator/validator-rules-let.xml</value>
+            <value>classpath:/validator/let/**/*.xml</value>        
+        </list>
+    </property>
+    </bean>
+		
+		
 		
 		
 	<import resource="context-dao.xml"/>
-
-	<import resource="context-validator.xml"/>	
 		
 	<import resource="context-security.xml"/>	
-	
-	<import resource="context-excel.xml"/>	
 	
 	<import resource="context-idgen.xml"/>
 	
