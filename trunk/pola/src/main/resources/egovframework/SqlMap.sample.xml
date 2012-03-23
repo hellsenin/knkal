@@ -28,4 +28,31 @@ order by code_id asc
 LIMIT #pageSize# offset #pageStart#
  ]]></select> 
  
+ 
+<!-- 
+
+CREATE TABLE `comtccmmncode` (
+  `CODE_ID` varchar(6) NOT NULL,
+  `CODE_ID_NM` varchar(60) DEFAULT NULL,
+  `CODE_ID_DC` varchar(200) DEFAULT NULL,
+  `USE_AT` char(1) DEFAULT NULL,
+  `CL_CODE` char(3) DEFAULT NULL,
+  `FRST_REGIST_PNTTM` datetime DEFAULT NULL,
+  `FRST_REGISTER_ID` varchar(20) DEFAULT NULL,
+  `LAST_UPDT_PNTTM` datetime DEFAULT NULL,
+  `LAST_UPDUSR_ID` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`CODE_ID`),
+  UNIQUE KEY `COMTCCMMNCODE_PK` (`CODE_ID`),
+  KEY `COMTCCMMNCODE_i01` (`CL_CODE`),
+  CONSTRAINT `comtccmmncode_ibfk_1` FOREIGN KEY (`CL_CODE`) REFERENCES `COMTCCMMNCLCODE` (`CL_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+ --> 
+ 
+ 
 </sqlMap>
